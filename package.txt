@@ -1,0 +1,2 @@
+example0;v1.1.1;Auther;This a mock package for debug purpose. See documents for more info.;https://github.com/cheetosysst/csc_package/blob/master/mock/example.txt
+example1;v1.1.1;Auther;This a mock package for debug purpose. See documents for more info.;https://github.com/cheetosysst/csc_package/blob/master/mock/example.txt

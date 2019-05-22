@@ -20,4 +20,4 @@ Outputs a list of possible package.
 ```bash =
 python3 main.py install <package name>
 ```
-Currently only downloads software tar.bz2 from source. Future update will include extract, make, install
+Currently only downloads software tar.bz2 from source. Future update will include make, install

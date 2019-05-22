@@ -2,6 +2,7 @@ import sys
 from pathlib import Path
 import urllib.request as ul
 import os
+import subprocess as sp
 
 # if debugMode:
 # 	print(bcolors.Warning+"[]DEBUG"+bcolors.ENDC)
@@ -50,11 +51,17 @@ if "list" == sys.argv[1]:
 if "install" == sys.argv[1]:
 	for i in lineList:
 		temp = i.split(";")
-		if sys.argv[2] == temp[0]:
+		if sys.argv[2].lower() == temp[0].lower():
 			index = -1
+			name = i.split(";")[0]
 			if not os.path.isdir(str(Path.home())+"/package"):
 				os.mkdir(str(Path.home())+"/package", mode=0o777 )
 				print (bcolors.WARNING+"[]dir made"+bcolors.ENDC)
 			if debugMode:
 				print(bcolors.WARNING+"[]DEBUG"+bcolors.ENDC,temp[4].split("/"),str(index))
+			print("Downloading package "+bcolors.WARNING+bcolors.BOLD+name+bcolors.ENDC+" ...")
 			ul.urlretrieve(temp[4], str(Path.home())+"/package/"+temp[4].split("/")[index])
+			print("Extracting package ...")
+			if debugMode:
+				print(["tar" ,"-xvf" ,str(Path.home())+"/package/"+temp[4].split("/")[index] ,str(Path.home())+"/package"])
+			sp.run(["tar" ,"-xvf" ,str(Path.home())+"/package/"+temp[4].split("/")[index] ,"--directory="+str(Path.home())+"/package"])

@@ -35,7 +35,7 @@ if "show" == sys.argv[1]:
 			version = i.split(";")[1]
 			auther = i.split(";")[2]
 			description = i.split(";")[3]
-			print(bcolors.WARNING+bcolors.BOLD+name+bcolors.ENDC,"	",bcolors.HEADER+version+bcolors.ENDC,"	",bcolors.OKBLUE+auther+bcolors.ENDC)
+			print(bcolors.WARNING+bcolors.BOLD+name+bcolors.ENDC+"	"+bcolors.HEADER+version+bcolors.ENDC+"	"+bcolors.OKBLUE+auther+bcolors.ENDC)
 			print(description)
 	exit()
 
@@ -48,7 +48,7 @@ if "search" == sys.argv[1]:
 			version = i.split(";")[1]
 			auther = i.split(";")[2]
 			description = i.split(";")[3]
-			print(bcolors.WARNING+bcolors.BOLD+name+bcolors.ENDC,"	",bcolors.HEADER+version+bcolors.ENDC,"	",bcolors.OKBLUE+auther+bcolors.ENDC)
+			print(bcolors.WARNING+bcolors.BOLD+name+bcolors.ENDC+"	"+bcolors.HEADER+version+bcolors.ENDC+"	"+bcolors.OKBLUE+auther+bcolors.ENDC)
 			print(description)
 	exit()
 
@@ -60,7 +60,7 @@ if "list" == sys.argv[1]:
 		version = i.split(";")[1]
 		auther = i.split(";")[2]
 		description = i.split(";")[3]
-		print(bcolors.WARNING+bcolors.BOLD+name+bcolors.ENDC,"	",bcolors.HEADER+version+bcolors.ENDC,"	",bcolors.OKBLUE+auther+bcolors.ENDC)
+		print(bcolors.WARNING+bcolors.BOLD+name+bcolors.ENDC+"	"+bcolors.HEADER+version+bcolors.ENDC+"	"+bcolors.OKBLUE+auther+bcolors.ENDC)
 		print(description)
 	exit()
 

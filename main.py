@@ -14,7 +14,7 @@ class bcolors:
 	BOLD = '\033[1m'
 	UNDERLINE = '\033[4m'
 
-debugMode= False
+debugMode = False
 home = str(Path.home())
 lineList = [line.rstrip('\n') for line in open("package.txt")]
 

@@ -19,7 +19,10 @@ class bcolors:
 # Variable and data
 debugMode = False
 home = str(Path.home())
-lineList = [line.rstrip('\n') for line in open("package.txt")]
+try:
+	lineList = [line.rstrip('\n') for line in open("package.txt")]
+except:
+	print("Error on collecting package.txt, try run \"csc update\"")
 
 if len(sys.argv) < 2:
 	print("Please specify task") 
@@ -144,18 +147,34 @@ if "install" == sys.argv[1]:
 				index = -1
 				name = i.split(";")[0]
 				if not os.path.isdir(str(Path.home())+"/package"):
-					os.mkdir(str(Path.home())+"/package", mode=0o777 )
+					try:
+						os.mkdir(str(Path.home())+"/package", mode=0o777 )
+					except:
+						print("Error on creating file in home directory, exitting")
+						exit()
 					print (bcolors.WARNING+"[]dir made"+bcolors.ENDC)
 				if debugMode:
 					print(bcolors.WARNING+"[]DEBUG"+bcolors.ENDC,temp[4].split("/"),str(index))
 				print("Downloading package "+bcolors.WARNING+bcolors.BOLD+name+bcolors.ENDC+" ...")
-				ul.urlretrieve(temp[4], str(Path.home())+"/package/"+temp[4].split("/")[index])
+				try:
+					ul.urlretrieve(temp[4], str(Path.home())+"/package/"+temp[4].split("/")[index])
+				except:
+					print("Error downloading, exitting")
+					exit()
 				print("Extracting package ...")
 				if debugMode:
 					print(bcolors.WARNING+"[] Debug"+bcolors.ENDC,["tar" ,"-xf" ,str(Path.home())+"/package/"+temp[4].split("/")[index] ,str(Path.home())+"/package"])
-				sp.run(["tar" ,"-xf" ,str(Path.home())+"/package/"+temp[4].split("/")[index] ,"--directory="+str(Path.home())+"/package"])
+				try:
+					sp.run(["tar" ,"-xf" ,str(Path.home())+"/package/"+temp[4].split("/")[index] ,"--directory="+str(Path.home())+"/package"])
+				except:
+					print("Error on extracting, exitting")
+					exit()
 				print("Removing tar file")
-				os.remove(str(Path.home())+"/package/"+temp[4].split("/")[index])
+				try:
+					os.remove(str(Path.home())+"/package/"+temp[4].split("/")[index])
+				except:
+					print("Error on removing tar file, exitting")
+					exit()
 				print("Checking if make  config exist")
 				if temp[5] == "none":
 					print ("Config file not found, proceed to default install")
